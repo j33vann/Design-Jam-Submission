@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <title>Doughnuts | Product catalog</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/images/favicon.png">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="position: relative; width: 100%; padding: 15px 25px; z-index: 100; background: white;">
+        <a class="navbar-brand" href="/" style="padding: 0;"><img class="logo" src="/images/logo-nobg.png" alt="" style="width: 170px; position: absolute; top: 7px; left: 40px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalLong">Newsletter</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cart.html"><i class="fa fa-shopping-cart"></i> Cart</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0 input-group" style="width: fit-content; margin-left: 20px;">
+            <input class="form-control mr-sm-2 search-box" type="search" placeholder="Search" aria-label="Search" style="margin: 0 0 0 0!important; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-right: 0px; background: transparent;">
+            <div class="input-group-append">
+                <button class="btn btn-outline-dark" style="border-top-right-radius: 20px; border-bottom-right-radius: 20px; border: 1px solid #ced4da; border-left: 0px;">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+          </form>
+        </div>
+      </nav>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="max-width: 800px;">
+          <div class="modal-content">
+            <div class="modal-body" style="padding: 0;">
+               <div class="row">
+                    <button class="btn btn-outline-dark" style="font-size: 15px; border-radius: 25px; width: fit-content; padding: 2px 10px; position: absolute; top: 20px; right: 20px; z-index: 10;" onclick="hideModal()">x</button>
+                    <div class="col-lg-6 modal-img">
+                        <img src="/images/newsletter-image.jpg" alt="" style="max-width: -webkit-fill-available;">
+                    </div>
+                    <div class="col-lg-6" style="padding: 40px;">
+                        <h3 style="margin-top: 50px;     background: linear-gradient( 90deg, #24C6DC, #000000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">New flavours, discounts and many more...</h3>
+                        <h5 style="margin-top: 30px; font-weight: 300;">Name</h5>
+                        <input type="text" class="form-control" placeholder="eg. John newland">
+                        <h5 style="margin-top: 10px; font-weight: 300;">E-mail</h5>
+                        <input type="text" class="form-control" placeholder="example@email.com">
+                        <a href=""><button class="btn btn-outline-primary" style="margin-top: 30px;">Subscribe</button></a>
+                        <p style="margin-top: 30px; color: gray; font-size: 14px;">Note* By subscribing to our newsletter you agree to recieve notifications about our latest updates like delicious new flavours or exciting new discounts etc.</p>
+                    </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Modal -->
+
+    <div class="section1" style="height: 670px;">
+        <div class="product-bg" style="position: absolute; top: 0; height: 736px; width: 500px; margin-top: 10px; background: linear-gradient( rgba(22, 22, 22, 0.70), rgb(22, 22, 22, 0.80) ), url('/images/product-background.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img class="product-image" src="" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h1 style="font-family: fantasy;" class="donut-title">Loading...</h1>
+                    <p class="donut-description"></p>
+                    <h3 style="font-weight: 700;"><s style="color: gray; font-size: 18px;">$1.59</s> $1.29 <span style="font-size: 16px; font-weight: 300;">/ per piece</span></h3>
+                    <select id="productNos" class="form-control" style="max-width: 300px;">
+                        <option hidden disabled selected>Number of pieces</option>
+                        <option value="">2 pcs</option>
+                        <option value="">8 pcs</option>
+                        <option value="">12 pcs</option>
+                    </select>
+                    <h5 style="margin-top: 25px;"><i class="fas fa-shipping-fast" style="font-size: 50px;"></i> <span style="font-weight: 400;">Lightning fast delivery</span></h5>
+                    <button class="btn cartBtn" style="border-radius: 25px; border: 1px solid black; margin-top: 25px; max-width: 300px; width: 100%;">Add to cart</button>
+                    <button class="btn buynowBtn" style="border-radius: 25px; border: 1px solid black; margin-top: 10px; max-width: 300px; width: 100%;">Buy now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="products" style="height: 650px; background: whitesmoke;">
+        <h1 style="text-align: center; padding-top: 30px; padding-bottom: 40px; font-family: Arial, Helvetica, sans-serif;">Suggested for you</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card" style="box-shadow: 0 0 10px; border: 0;">
+                        <div class="card-img-top">
+                            <span style="position: absolute; background-color: black; color: white; padding: 5px 20px;">Sale!</span>
+                            <img src="/images/product-images/10.jpg" alt="" style="width: inherit;">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title" style="font-weight: 700;">Vanilla frosted donut</div>
+                            <p class="price"><s style="color: gray;">$1.39</s> <b>$0.99</b></p>
+                            <button class="cartBtn btn btn-outline-dark" style="border-radius: 20px;"><a class="stretched-link" href="/donut.html?q=10"></a>Add to cart</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card" style="box-shadow: 0 0 10px; border: 0;">
+                        <div class="card-img-top">
+                            <span style="position: absolute; background-color: black; color: white; padding: 5px 20px;">Sale!</span>
+                            <img src="/images/product-images/7.jpg" alt="" style="width: inherit;">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title" style="font-weight: 700;">Chocolate-Frosted Donut</div>
+                            <p class="price"><s style="color: gray;">$1.59</s> <b>$1.29</b></p>
+                            <button class="cartBtn btn btn-outline-dark" style="border-radius: 20px;"><a class="stretched-link" href="/donut.html?q=7"></a>Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card" style="box-shadow: 0 0 10px; border: 0;">
+                        <div class="card-img-top">
+                            <span style="position: absolute; background-color: black; color: white; padding: 5px 20px;">Sale!</span>
+                            <img src="/images/product-images/9.jpg" alt="" style="width: inherit;">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title" style="font-weight: 700;">Boston Kreme Pie Donut</div>
+                            <p class="price"><s style="color: gray;">$1.29</s> <b>$0.99</b></p>
+                            <button class="cartBtn btn btn-outline-dark" style="border-radius: 20px;"><a class="stretched-link" href="/donut.html?q=9"></a>Add to cart</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div>
+                        <span style="margin-right: 10px;"><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="footer-text">4717  Andell Road, Nashville, Tennessee</span>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <span style="margin-right: 10px;"><i class="fa fa-phone"></i></span>
+                        <span class="footer-text">+1 615-246-1448</span>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <span style="margin-right: 10px;"><i class="fa fa-envelope"></i></span>
+                        <span class="footer-text">thedonutshop@gmail.com</span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <p style="color: lightgray;" class="disclaimerTxt">Disclaimer* All the photos are done by professional photographers, the real donuts may or may not look like that but we guarantee taste :)</p>
+                    <div>
+                        <h4 style="color: white; font-weight: 700;">Follow us on</h4>
+                        <span><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook" style="padding-left: 0;"></i></a></span>
+                        <span><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></span>
+                        <span><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></span>
+                        <span><a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<style>
+    /* navbar */
+    .navbar{
+        box-shadow: 0 0 7px 1px;
+    }
+    .navbar .form-control:focus{
+        box-shadow: 0 0 0 0!important;
+        border: 1px solid #ced4da;
+    }
+    .nav-item{
+        margin: 0 10px;
+    }
+    .nav-item .nav-link{
+        font-weight: 600;
+        font-size: 18px;
+        padding: 10px 20px!important;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        color: black;
+    }
+    .nav-item .nav-link:hover{
+        color: white!important;
+
+    }
+    .nav-item:hover{
+        background: linear-gradient(to right, #24C6DC, #514A9D);
+        border-radius: 25px;
+        transition: 0.4s;
+    }
+    .navbar-dark .navbar-nav .nav-link:focus{
+        color: black;
+    }
+    /* navhbar */
+
+    /* foooter */
+
+    .footer{
+        height: 300px;
+        background: linear-gradient(to right, #24C6DC, #514A9D);
+        padding: 40px 0;
+    }
+    .footer .footer-text{
+        font-size: 20px;
+        color: white; 
+    }
+    .footer .fa, .footer .fas{
+        font-size: 22px; 
+        padding: 10px 13px; 
+        border: 1px solid black;
+        border-radius: 20px; 
+        background-color: black;
+        color: white;
+    }
+    .footer .fab{
+        font-size: 22px; 
+        color: white;
+        padding: 10px; 
+    }
+
+    /* footer */
+
+    .form-control:focus{
+        box-shadow: 0 0 0 0;
+    }
+    .section1{
+        padding: 80px 0;
+    }
+    .product-image{
+        max-width: -webkit-fill-available;
+    }
+    .cartBtn{
+        background-color: black;
+        color: white;
+    }
+    .cartBtn:hover{
+        background-color: whitesmoke;
+        box-shadow: 0 0 5px 1px;
+        color: black;
+        transition: 500ms;
+    }
+    .buynowBtn:hover{
+        box-shadow: 0 0 5px 1px;
+        transition: 500ms;
+    }
+
+    @media(max-width: 991px){
+        .donut-title{
+            margin-top: 10px;
+        }
+        .products{
+            height: auto!important;
+            padding-bottom: 30px;
+        }
+        .col-lg-4{
+            margin-top: 20px;
+        }
+        .products h1:first-child{
+            padding-bottom: 0!important;
+        }
+
+        .logo{
+            width: 140px!important;
+            position: relative!important;
+            top: inherit!important;
+            left: inherit!important;
+        }
+        .navbar{
+            padding: .5rem 1rem!important;
+        }
+        .nav-item .nav-link{
+            padding: .5rem 0!important;
+        }
+        .footer{
+            padding: 40px!important;
+            height: auto!important;
+        }
+        .footer .footer-text{
+            font-size: 16px;
+            color: white; 
+        }
+        .footer .fa, .footer .fab{
+            font-size: 18px;
+        }
+        .footer .disclaimerTxt{
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        .product-bg{
+            display: none;
+        }
+        .section1{
+            height: auto!important;
+            padding: 30px 0!important;
+        }
+    }
+</style>
+
+<script>
+    var url = window.location.href
+    var product = url.split("q=")[1]
+    $(".product-image").attr("src", "/images/product-images/" + product + ".jpg")
+
+    if(product == 2){
+        $(".donut-title").text("Glazed donut")
+        $(".donut-description").text("The Zeus on the mountaintop of donuts. It has a nice distribution of glaze, a fluffy texture, and is not too greasy. We won't call it perfect, but there's a reason this glazed donut is the baseline all other donuts are measured against.")
+    } else if(product == 3){
+        $(".donut-title").text("Cruller donut")
+        $(".donut-description").text("Like funnel cake in donut form, this favorite is often sold out of our locations. Perfectly sweet with a great texture, we also love to pull the layers apart to make sure you are getting maximum sugar in every bite.")
+    } else if(product == 4){
+        $(".donut-title").text("Sour Cream donut")
+        $(".donut-description").text("The Sour cream donut will have you reconsidering your life choices because you hadn't been eating enough sour cream donuts. Cake-y, perfectly frosted and with a unique texture, consider us converts.")
+    } else if(product == 5){
+        $(".donut-title").text("Powered Sugar donut")
+        $(".donut-description").text("Delicious, but it is extra sweet in a good way. Also, warning, if you think the old-fashioned is dry, then inhaling the powder from this isn't going to help our cause in convincing you this is one of the best donuts.")
+    } else if(product == 6){
+        $(".donut-title").text("Old-Fashioned donut")
+        $(".donut-description").text("This donut is begging for a dunk, but despite any built-in dryness, it's still pretty damn tasty. It reminds us of visits to the donut shop when we were kids, and the warm memories are probably affecting the taste.")
+    } else if(product == 7){
+        $(".donut-title").text("Chocolate-Frosted donut")
+        $(".donut-description").text("Definitely the best of the frosted bunch, and how could it not be? The chocolate tastes legit and the sprinkles add the perfect amount of fun.")
+    } else if(product == 8){
+        $(".donut-title").text("Coconut donut")
+        $(".donut-description").text("Two bites in some of us were like, calm down coconut, but everyone else without a personal vendetta against the flavor raved about this admittedly pretty option.")
+    } else if(product == 9){
+        $(".donut-title").text("Boston Kreme Pie donut")
+        $(".donut-description").text("This was the considered one of the best of the filled-donut category. It definitely gives you the chocolate-custardy flavor of the classic Beantown dessert.")
+    } else if(product == 10){
+        $(".donut-title").text("Vanilla-Frosted donut")
+        $(".donut-description").text("This colouful donut is know for throwing flavours in your mouth and leaving a wonderful aftertaste. Bet the more you look at it the more you wanna try it.")
+    }
+
+    function hideModal(){
+        $('#exampleModalLong').modal('hide')
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+crossorigin="anonymous"></script>
