@@ -73,7 +73,7 @@
     <!-- Modal -->
 
     <div class="section1" style="height: 670px;">
-        <div class="product-bg" style="position: absolute; top: 0; height: 736px; width: 500px; margin-top: 10px; background: linear-gradient( rgba(22, 22, 22, 0.70), rgb(22, 22, 22, 0.80) ), url('/images/product-background.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="product-bg" style="position: absolute; top: 0; height: 736px; width: 500px; margin-top: 10px; background: linear-gradient( rgba(22, 22, 22, 0.70), rgb(22, 22, 22, 0.80) ), url('images/product-background.jpg'); background-size: cover; background-position: center;"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -319,7 +319,7 @@
 <script>
     var url = window.location.href
     var product = url.split("q=")[1]
-    $(".product-image").attr("src", "/images/product-images/" + product + ".jpg")
+    $(".product-image").attr("src", "images/product-images/" + product + ".jpg")
 
     if(product == 2){
         $(".donut-title").text("Glazed donut")
