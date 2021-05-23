@@ -9,11 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="images/favicon.png">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    
 </head>
 <body>
     
     <nav class="navbar navbar-expand-lg navbar-light" style="position: relative; width: 100%; padding: 15px 25px; z-index: 100;">
-        <a class="navbar-brand" href="index.html" style="padding: 0;"><img class="logo" src="images/logo-nobg.png" alt="" style="width: 170px; position: absolute; top: 7px; left: 40px;"></a>
+        <a class="navbar-brand" href="" style="padding: 0;"><img class="logo" src="images/logo-nobg.png" alt="" style="width: 170px; position: absolute; top: 7px; left: 40px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -73,21 +75,21 @@
     <!-- Modal -->
 
     <div class="section1">
-        <h1 style="font-weight: 100; color: white; text-align: center; font-size: 60px; height: 100%; display: flex; justify-content: center; align-items: center;">Cart</h1>
+        <h1 class="hideme" style="font-weight: 100; color: white; text-align: center; font-size: 60px; height: 100%; display: flex; justify-content: center; align-items: center; font-family: fantasy;">Cart</h1>
     </div>
 
     <div class="section2">
         <div class="container">
             <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
-                <div class="col-lg-8">
+                <div class="col-lg-8 hideme">
                     <div class="card">
                         <div class="card-header" style="font-weight: 700;">Items in cart</div>
-                        <div class="card-body" style="background: url(images/emptycart.png); background-position: center; background-size: cover; height: 300px;">
+                        <div class="card-body" style="background: url(/images/emptycart.png); background-position: center; background-size: cover; height: 300px;">
                             <h3 style="font-weight: 300;">Your cart is empty</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 hideme">
                     <div class="card">
                         <div class="card-header" style="font-weight: 700;">Subtotal</div>
                         <div class="card-body">
@@ -104,7 +106,7 @@
         <h1 style="text-align: center; padding-top: 30px; padding-bottom: 40px; font-family: Arial, Helvetica, sans-serif;">Today's special</h1>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 hideme">
                     <div class="card" style="box-shadow: 0 0 10px; border: 0;">
                         <div class="card-img-top">
                             <span style="position: absolute; background-color: black; color: white; padding: 5px 20px;">Sale!</span>
@@ -117,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 hideme">
                     <div class="card" style="box-shadow: 0 0 10px; border: 0;">
                         <div class="card-img-top">
                             <span style="position: absolute; background-color: black; color: white; padding: 5px 20px;">Sale!</span>
@@ -130,7 +132,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 hideme">
                     <div class="card" style="box-shadow: 0 0 10px; border: 0;">
                         <div class="card-img-top">
                             <span style="position: absolute; background-color: black; color: white; padding: 5px 20px;">Sale!</span>
@@ -258,6 +260,16 @@
         padding: 10px; 
     }
 
+    .hideme{
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1s ease-out;
+    }
+    .hideme.show{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     @media(max-width: 991px){
 
         .col-lg-4{
@@ -299,7 +311,16 @@
 </style>
 
 <script>
-
+    $(document).ready(function(){
+        $(".hideme").each(function(i){
+            var controller = new ScrollMagic.Controller();
+            var ourScene = new ScrollMagic.Scene({
+                triggerElement: $(".hideme").get(i),
+                reverse: true,
+                triggerHook: 0.9
+            }).setClassToggle($(".hideme").get(i), "show").addTo(controller)
+        })
+    })
     function hideModal(){
         $('#exampleModalLong').modal('hide')
     }
