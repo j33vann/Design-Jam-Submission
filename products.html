@@ -97,10 +97,15 @@
     </div>
 
     <div class="section3" style="padding-bottom: 80px; background-color: whitesmoke;">
-        <h1 style="text-align: center; padding-top: 30px; padding-bottom: 40px;">Our Products</h1>
+        
+        <svg viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet" style="position: absolute;" class="curves">
+            <path d="M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z" style="stroke: none; fill:wheat;"></path>
+          </svg>
+          
+        <h1 class="sec3head" style="text-align: center; padding-top: 30px; padding-bottom: 40px; position: relative;">Our Products</h1>
 
         <div class="container">
-
+            
             <div class="row hideme">
                 <div class="col-lg-4">
                     <div class="card" style="box-shadow: 0 0 10px; border: 0;">
@@ -376,6 +381,15 @@
         }
         .section3 .col-lg-4{
             margin: 20px 0;
+        }
+    }
+
+    @media(max-width: 500px){
+        .sec3head{
+            padding-bottom: 10px!important;
+        }
+        .curves{
+            display: none;
         }
     }
 
