@@ -48,10 +48,11 @@
 
     <div class="section1">
         <div class="row" style="margin: 0; height: 100%;">
-            <div class="col-lg-6" style="margin-top: 150px; padding: 40px;">
-                <h1 class="sec1Head">Experience happiness with every bite of our delicious donuts</h1>
+            <div class="col-lg-6 hideme" style="margin-top: 120px; padding: 40px;">
+                <h1 class="sec1Head">Sugar, cream and everything good therein.</h1>
+                <h4 class="sec1SubHead">Experience happiness with every bite of our delicious donuts.</h4>
             </div>
-            <div class="col-lg-6" style="background: aliceblue; opacity: 0.5; clip-path: polygon(100% 100%, 100% 0, 0 50%);">
+            <div class="col-lg-6 sec1Second" style="background: aliceblue; opacity: 0.5; clip-path: polygon(100% 100%, 100% 0, 0 50%);">
                 
             </div>
         </div>
@@ -231,10 +232,11 @@
 
     .section1{
         height: 755px;
-        background: url("images/donutMain.jpg");
+        background: linear-gradient( to right, rgba(22, 22, 22, 0.90), rgb(0,0,0,0) ), url("images/donutMain.jpg");
         /* linear-gradient( rgba(22, 22, 22, 0.70), rgb(22, 22, 22, 0.80) ),  */
         background-position: center;
         background-size: cover;
+        overflow: hidden;
     }
 
     /* navbar */
@@ -270,15 +272,17 @@
     /* navhbar */
 
     .sec1Head{
-        background: linear-gradient(90deg, #2193b0, #6dd5ed);
+        /* background: linear-gradient(90deg, #2193b0, #6dd5ed); */
+        font-size: 80px;
         color: white;
-        border-radius: 100px;
-        padding: 100px 10px;
-        box-shadow: 0 0 10px 5px;
-        text-align: center;
-        margin-top: 30px;
-        margin-bottom: 60px;
+        margin-top: 10px;
+        margin-bottom: 40px;
         font-weight: 700;
+    }
+    .sec1SubHead{
+        color: white;
+        font-weight: 400;
+        
     }
     .sec2head{
         background: linear-gradient(90deg, #24C6DC, #000000);
@@ -374,6 +378,9 @@
             left: initial!important;
             top: initial!important;
         }
+        .sec1Second{
+            display: none;
+        }
         .sec2img1{
             padding-top: 50px;
         }
@@ -444,6 +451,13 @@
             background: linear-gradient(90deg, #000000, #434343);
             color: #007bff;
             border-radius: 0;
+            font-size: 2.5rem;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 0 10px 3px;
+        }
+        .sec1SubHead{
+            display: none;
         }
         .section1 .row .col-lg-6:first-child{
             margin-top: 40px!important;
@@ -513,7 +527,15 @@
         $(this).attr("src", "images/donuts transparent 2.png")
     })
 
-    
+    $(window).resize(function(){
+        if($(this).width() < 500){
+            $(".sec1Head").text("Experience happiness with every bite of our delicious donuts.")
+        }
+    })
+
+    if($(this).width() < 500){
+        $(".sec1Head").text("Experience happiness with every bite of our delicious donuts.")
+    }
 
 </script>
 
