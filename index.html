@@ -488,6 +488,9 @@
             $(".fa-search").css("color", "black")
             $(".search-box").css("color", "black")
             $(".navbar").addClass("navbar-light").removeClass("navbar-dark")
+            $(".btn-outline-light").mouseleave(function(){
+                $(".fa-search").css("color", "black")
+            })
         } else {
             //$(".navbar").css({"background-color": "transparent", "box-shadow": "0 0 0 0"})
             $(".navbar").removeClass("navbar-addBg")
